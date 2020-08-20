@@ -620,7 +620,7 @@ def resample_and_insert_molecular_v3(molecule, min_wavelength, max_wavelength, n
         if molecule in ['Cs','K','Li','Na','Rb']:
             openf=FortranFile(fdata,'r')
             dset = openf.read_ints(dtype=np.float)
-        elif molecule in ["LiCl", "LiF","CaH"]:
+        elif molecule in ["LiCl", "LiF","LiH"]:
             #path to ehsan's data with binary .npy
             fdata = os.path.join(og_directory+"EXOPLINES/",molecule,molecule+'_1060_npy',molecule+'__H2HE.'+str(int(i))+".npy")
             dset = np.load(fdata)
@@ -639,7 +639,7 @@ def resample_and_insert_molecular_v3(molecule, min_wavelength, max_wavelength, n
         #I have created at the top.. maybe you want something greater than 1e6
         #print ("test",interp_wvno_grid,dset)
         #print ("test",np.shape(interp_wvno_grid),np.shape(og_wvno_grid),np.shape(dset))
-        if molecule in ["LiCl",'LiF',"CaH"]:
+        if molecule in ["LiCl",'LiF',"LiH",'LiOH']:
             #print(dset,np.shape(dset))
             dset = np.interp(interp_wvno_grid,dset[:,0], dset[:,1],right=1e-50, left=1e-50)
             #print(dset,np.shape(dset))
