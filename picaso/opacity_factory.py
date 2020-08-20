@@ -624,7 +624,7 @@ def resample_and_insert_molecular_v3(molecule, min_wavelength, max_wavelength, n
             #path to ehsan's data with binary .npy
             fdata = os.path.join(og_directory+"EXOPLINES/",molecule,molecule+'_1060_npy',molecule+'__H2HE.'+str(int(i))+".npy")
             dset = np.load(fdata)
-            print(i,p,t,np.shape(dset))
+            #print(i,p,t,np.shape(dset))
         else:
             # Freedman XS with binary and readme.fits
             dset = np.fromfile(fdata, dtype=float) #;print("=======dset-TWO=======\n",dset)   #EHSAN ADDED THIS LINE
